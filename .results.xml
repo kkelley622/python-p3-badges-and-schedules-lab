@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="3" skipped="0" tests="4" time="0.027" timestamp="2023-12-19T13:53:35.816444" hostname="Kevins-MacBook-Air-2.local"><testcase classname="" name="Module conference_badges.py contains a function &quot;badge_maker()&quot; that creates and returns a badge." time="0.000" /><testcase classname="" name="Module conference_badges.py contains a function &quot;batch_badge_creator()&quot; that creates and returns a list of badges." time="0.000"><failure message="AssertionError: assert &lt;class 'NoneType'&gt; == list&#10; +  where &lt;class 'NoneType'&gt; = type(None)&#10; +    where None = batch_badge_creator(['Guido', 'Edsger', 'Ada', 'Charles', 'Alan', 'Grace', ...])&#10; +      where ['Guido', 'Edsger', 'Ada', 'Charles', 'Alan', 'Grace', ...] = TestConferenceBadges.NAMES">self = &lt;conference_badges_test.TestConferenceBadges object at 0x106948bb0&gt;
+
+    def test_batch_badge_creator(self):
+      '''contains a function "batch_badge_creator()" that creates and returns a list of badges.'''
+&gt;     assert(type(batch_badge_creator(TestConferenceBadges.NAMES)) == list)
+E     AssertionError: assert &lt;class 'NoneType'&gt; == list
+E      +  where &lt;class 'NoneType'&gt; = type(None)
+E      +    where None = batch_badge_creator(['Guido', 'Edsger', 'Ada', 'Charles', 'Alan', 'Grace', ...])
+E      +      where ['Guido', 'Edsger', 'Ada', 'Charles', 'Alan', 'Grace', ...] = TestConferenceBadges.NAMES
+
+lib/testing/conference_badges_test.py:44: AssertionError</failure></testcase><testcase classname="" name="Module conference_badges.py contains a function &quot;assign_rooms&quot; that returns a list of welcome messages and room assignments." time="0.000"><failure message="AssertionError: assert &lt;class 'NoneType'&gt; == list&#10; +  where &lt;class 'NoneType'&gt; = type(None)&#10; +    where None = assign_rooms(['Guido', 'Edsger', 'Ada', 'Charles', 'Alan', 'Grace', ...])&#10; +      where ['Guido', 'Edsger', 'Ada', 'Charles', 'Alan', 'Grace', ...] = TestConferenceBadges.NAMES">self = &lt;conference_badges_test.TestConferenceBadges object at 0x1069480a0&gt;
+
+    def test_assign_rooms(self):
+        '''contains a function "assign_rooms" that returns a list of welcome messages and room assignments.'''
+&gt;       assert(type(assign_rooms(TestConferenceBadges.NAMES)) == list)
+E       AssertionError: assert &lt;class 'NoneType'&gt; == list
+E        +  where &lt;class 'NoneType'&gt; = type(None)
+E        +    where None = assign_rooms(['Guido', 'Edsger', 'Ada', 'Charles', 'Alan', 'Grace', ...])
+E        +      where ['Guido', 'Edsger', 'Ada', 'Charles', 'Alan', 'Grace', ...] = TestConferenceBadges.NAMES
+
+lib/testing/conference_badges_test.py:49: AssertionError</failure></testcase><testcase classname="" name="Module conference_badges.py contains a function &quot;printer&quot; that outputs the list of badges and room assignments." time="0.000"><failure message="AssertionError: assert '' == 'Hello, my na... to room 8!\n'&#10;  - Hello, my name is Guido.&#10;  - Hello, my name is Edsger.&#10;  - Hello, my name is Ada.&#10;  - Hello, my name is Charles.&#10;  - Hello, my name is Alan.&#10;  - Hello, my name is Grace.&#10;  - Hello, my name is Linus....&#10;  &#10;  ...Full output truncated (10 lines hidden), use '-vv' to show">self = &lt;conference_badges_test.TestConferenceBadges object at 0x106948160&gt;
+
+    def test_printer(self):
+        '''contains a function "printer" that outputs the list of badges and room assignments.'''
+        captured_out = io.StringIO()
+        sys.stdout = captured_out
+        printer(TestConferenceBadges.NAMES)
+        sys.stdout = sys.__stdout__
+&gt;       assert(captured_out.getvalue() == TestConferenceBadges.PRINTED)
+E       AssertionError: assert '' == 'Hello, my na... to room 8!\n'
+E         - Hello, my name is Guido.
+E         - Hello, my name is Edsger.
+E         - Hello, my name is Ada.
+E         - Hello, my name is Charles.
+E         - Hello, my name is Alan.
+E         - Hello, my name is Grace.
+E         - Hello, my name is Linus....
+E         
+E         ...Full output truncated (10 lines hidden), use '-vv' to show
+
+lib/testing/conference_badges_test.py:58: AssertionError</failure></testcase></testsuite></testsuites>
